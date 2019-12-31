@@ -6,13 +6,18 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
+    "start": "concurrently --kill-others \"npm run babel\" \"npm run test\" \"live-server\" ",
+    "babel": "babel . --watch --out-dir compiled --presets=react --ignore=node_modules,compiled --source-maps inline",
     "test": "live-server --open=./SpecRunner.html --port=8081",
     "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",
+    "concurrently": "^5.0.2",
+    "g": "^2.0.1",
     "jquery": "^2.2.1",
     "lodash": "^4.6.1",
+    "npm": "^6.13.4",
     "react": "^0.14.7",
     "react-dom": "^0.14.7"
   },
